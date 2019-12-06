@@ -121,6 +121,7 @@ def question(message, **kwargs):
                          'use \'checked\':True\' in choice!')
 
     choices = kwargs.pop('choices', None)
+    m_support = kwargs.pop('mouse_support', True)
     validator = setup_simple_validator(kwargs)
 
     # TODO style defaults on detail level
@@ -229,6 +230,6 @@ def question(message, **kwargs):
     return Application(
         layout=layout,
         key_bindings_registry=manager.registry,
-        mouse_support=True,
+        mouse_support=m_support,
         style=style
     )

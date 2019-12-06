@@ -32,6 +32,7 @@ def question(message, **kwargs):
     status = {'answer': None}
 
     qmark = kwargs.pop('qmark', '?')
+    m_support = kwargs.pop('mouse_support', False)
 
     def get_prompt_tokens(cli):
         tokens = []
@@ -76,7 +77,7 @@ def question(message, **kwargs):
     return create_prompt_application(
         get_prompt_tokens=get_prompt_tokens,
         key_bindings_registry=manager.registry,
-        mouse_support=False,
+        mouse_support=m_support,
         style=style,
         erase_when_done=False,
     )
