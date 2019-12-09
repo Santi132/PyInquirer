@@ -120,6 +120,7 @@ def question(message, **kwargs):
     qmark = kwargs.pop('qmark', '?')
     # TODO style defaults on detail level
     style = kwargs.pop('style', default_style)
+    m_support = kwargs.pop('mouse_support', True)
 
     ic = InquirerControl(choices, default=default)
 
@@ -182,6 +183,6 @@ def question(message, **kwargs):
     return Application(
         layout=layout,
         key_bindings_registry=manager.registry,
-        mouse_support=True,
+        mouse_support=m_support,
         style=style
     )
